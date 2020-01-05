@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="contact-form">
+                    <div class="contact-form" id="contactForm1">
                         <h5>Contactanos a ...</h5>
                         <form action="https://script.google.com/macros/s/AKfycbzEylun8pitpvVLEHzi8G0_FiQXERl3TsOxN0WHibiajiAJjn4/exec" data-email="muruaezequiel@gmail.com" method="post">
                             <div class="row">
@@ -149,7 +149,6 @@
 						
                         </form>
 			    
-<h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:#fff"> Your Request has been posted to Google Spreadsheet</h3>
                     </div>
                 </div>
             </div>
@@ -235,71 +234,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script data-cfasync="false" type="text/javascript"
   src="form-submission-handler.js"></script>
 <!-- END -->
-	
-	
-	<script type="text/javascript">
-    function validateName() {
-            var name = document.getElementById('name').value;
-            if(name.length == 0) {
-              alert("Name can't be blank") ;
-              return false;
-
-            }
-            if (!name.match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/)) {
-              alert("Please enter your correct name") ;//Validation Message
-              return false;
-            }
-            return true;
-          }
-
-          function validatePhone() {
-            var phone = document.getElementById('phone').value;
-            if(phone.length == 0) {
-              alert("Phone number can't be blank") ;//Validation Message
-              return false;
-            }
-
-            if(!phone.match(/^[0]?[789]\d{9}$/)) {
-             alert("Please enter a correct phone number") ;//Validation Message
-             return false;
-           }
-
-           return true;
-
-         }
-
-         function validateEmail () {
-
-          var email = document.getElementById('email').value;
-          if(email.length == 0) {
-            alert("Email can't be blank") ;//Validation Message
-            return false;
-
-          }
-
-          if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-            alert("Please enter a correct email address") ;//Validation Message
-            return false;
-
-          }
-
-          return true;
-
-        }
 
 
-        function validateForm() {
-          if (!validateName() || !validatePhone() || !validateEmail()) {
+<script type="text/javascript">
+    var frm = $('#contactForm1');
 
-            alert("Form not submitted");//Validation Message
-            return false;
-          }
-          else {
-            submitted=true;
-            return true;
-          }
-        }
-        </script>
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+</script>
 	
 </body>
 
