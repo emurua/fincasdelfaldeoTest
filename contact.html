@@ -111,7 +111,7 @@
                 <div class="col-lg-6">
                     <div class="contact-form" >
                         <h5>Contactanos a ...</h5>
-                        <form id="contactForm1" action="https://script.google.com/macros/s/AKfycbzEylun8pitpvVLEHzi8G0_FiQXERl3TsOxN0WHibiajiAJjn4/exec" data-email="muruaezequiel@gmail.com" method="post">
+                        <form action="https://script.google.com/macros/s/AKfycbzEylun8pitpvVLEHzi8G0_FiQXERl3TsOxN0WHibiajiAJjn4/exec" data-email="muruaezequiel@gmail.com" method="post">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <p>De</p>
@@ -236,28 +236,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- END -->
 
 
-<script type="text/javascript">
-    var frm = $('#contactForm1');
-
-    frm.submit(function (e) {
-
-        e.preventDefault();
-
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function (data) {
-                console.log('Submission was successful.');
-                console.log(data);
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-                console.log(data);
-            },
-        });
-    });
-</script>
 	
 </body>
 
