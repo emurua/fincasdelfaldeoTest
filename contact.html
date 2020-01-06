@@ -144,11 +144,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
+                                <!--
+				<div class="col-lg-12">
                                     <button type="submit">Enviar <i class="lnr lnr-arrow-right"></i></button>
                                 </div>
+				-->
+				<button > Send</button>
+				    
+				 
                             </div>
-							
+				
+				
+				    <!-- Customise the Thankyou Message People See when they submit the form: -->
+				    <div class="thankyou_message" style="display:none;">
+				      <h2><em>Thanks</em> for contacting us!
+					We will get back to you soon!</h2>
+				    </div>
 						
                         </form>
 			    
@@ -235,20 +246,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
   <!-- Submit the Form to Google Using "AJAX" -->
   <script data-cfasync="false" type="text/javascript"
-  src="form-submission-handler.js"></script>
+  src="js/form-submission-handler.js"></script>
 <!-- END -->
 
-<script>
-    (function($){
-        $("body").on("submit", ".my-form", function(e){
-            e.preventDefault();
-            var form = $(e.target);
-            $.post( form.attr("action"), form.serialize(), function(res){
-                console.log(res);
-            });
-        });
-    )(jQuery);
-</script>
+
 	
 </body>
 
